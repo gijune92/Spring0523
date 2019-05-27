@@ -4,5 +4,26 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!-- jdbc, mariadb, java usage jdbc -->
+	
+	<!-- Spring FrameWork - JDBC Connetion Driver [실제 스프링에서는 이렇게 연결한다..? Java<->jdbc]  -->
+	<!-- Maria DB Connection info define & connect 빈객체의 처음은 무조건 소문자다!!!!!! -->
+	<bean id ="dataSource" class ="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://192.168.3.15:3306/test"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="1234"></property>
+	</bean>
+	<!-- DB Connection instance use -> Connection pool Create // DB info(dataSource) Query Mapping(mapping)  -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="mapperLocations" value="classpath:/sql/test.xml"></property>
+	</bean>
+	<!-- Connection full -> INFO INSTANSE -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
+	
+	</bean>
 		
 </beans>

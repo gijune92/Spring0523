@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- file name과 namespace를 동일하게 만들면 중복될일이 없겠지요? CRUD Mapper xml -> DML usage -->
+<mapper namespace="test">
+ <!-- JAVA BEANS INSTANSE가 있다면 resultType에 객체를 넣을수 있다. -->
+  <select id="select" resultType="hashmap">
+    SELECT * FROM ex
+  </select>
+  
+</mapper>

@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>
-	Hello world! GD~~~~~~~~  
+	Hello world! GD~~~~~~~~~~~~~~~~~~  
 </h1>
 
 </body>
